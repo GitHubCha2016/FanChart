@@ -41,6 +41,8 @@
     [self drawShapes];
 }
 
+
+
 - (void)drawShapes{
     // 每次绘制都清空数组
     self.fansArray = [NSMutableArray array];
@@ -82,10 +84,14 @@
     }
 }
 
+
+
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     // 获取点击的中心点
     UITouch * touch = [touches anyObject];
     CGPoint point = [touch locationInView:self];
+    
     // 获取点击区域 是否包含的CAShapeLayer
     FanShapeLayer * layer = [self touchLayer:point];
     if (layer) {
@@ -113,7 +119,6 @@
             return layer;
         }
     }
-
     return nil;
 }
 
@@ -142,6 +147,8 @@
     _radius = radius;
     _enlargeRadius = _radius * 1.2;
 }
+
+
 
 - (void)drawPath{
     CGFloat radius = _isSelected ? self.enlargeRadius : self.radius;
